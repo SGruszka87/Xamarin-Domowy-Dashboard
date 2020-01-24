@@ -1,0 +1,13 @@
+D:\projekty\DomowyDashboard\DomowyDashboard\bin\Debug\netstandard2.0\DomowyDashboard.deps.json
+D:\projekty\DomowyDashboard\DomowyDashboard\bin\Debug\netstandard2.0\DomowyDashboard.dll
+D:\projekty\DomowyDashboard\DomowyDashboard\bin\Debug\netstandard2.0\ref\DomowyDashboard.dll
+D:\projekty\DomowyDashboard\DomowyDashboard\bin\Debug\netstandard2.0\DomowyDashboard.pdb
+D:\projekty\DomowyDashboard\DomowyDashboard\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\projekty\DomowyDashboard\DomowyDashboard\obj\Debug\netstandard2.0\View\Glowna strona\StronaGlowna_View.xaml.g.cs
+D:\projekty\DomowyDashboard\DomowyDashboard\obj\Debug\netstandard2.0\Style\Style.css.g.cs
+D:\projekty\DomowyDashboard\DomowyDashboard\obj\Debug\netstandard2.0\DomowyDashboard.AssemblyInfoInputs.cache
+D:\projekty\DomowyDashboard\DomowyDashboard\obj\Debug\netstandard2.0\DomowyDashboard.AssemblyInfo.cs
+D:\projekty\DomowyDashboard\DomowyDashboard\obj\Debug\netstandard2.0\XamlC.stamp
+D:\projekty\DomowyDashboard\DomowyDashboard\obj\Debug\netstandard2.0\DomowyDashboard.dll
+D:\projekty\DomowyDashboard\DomowyDashboard\obj\Debug\netstandard2.0\ref\DomowyDashboard.dll
+D:\projekty\DomowyDashboard\DomowyDashboard\obj\Debug\netstandard2.0\DomowyDashboard.pdb

@@ -1,0 +1,75 @@
+﻿navigationpage {
+    -xf-bar-background-color: #5253a3;
+    -xf-bar-text-color: white;
+    -xf-bar-color: black;
+    text-shadow: 8;
+    color: black;
+}
+
+^contentpage {
+    background-color: #5253a3;
+}
+
+label {
+    font-family:Arial;
+    color: white;
+    font-size: 22;
+}
+    label.Temperatura {
+        font-family: Arial;
+        color: white;
+        font-size: 36;
+    }
+    label.Wilgotnosc {
+        font-family: Arial;
+        color: white;
+        font-size: 36;
+    }
+
+    label.Wl {
+        font-family: Arial;
+        color: #95fa73;
+        font-size: 20;
+    }
+    label.Wyl {
+        font-family: Arial;
+        color: #ff2e2e;
+        font-size: 20;
+    }
+
+button {
+    background-color: transparent;
+    opacity: 0.6;
+    border-color: #a8c887;
+    border-radius: 15;
+}
+    button.ZmniejszTemp {
+        color: white;
+        background-color: transparent;
+        border-width: 2;
+        opacity: 1;
+        border-color: #5272d3;
+        border-radius: 15;
+    }
+    button.ZwiekszTemp {
+        color: white;
+        background-color: transparent;
+        border-width: 2;
+        opacity: 1;
+        border-color: #5272d3;
+        border-radius: 15;
+    }
+
+frame {
+    background-color: #5254b9;
+    border-color: #5253a3;
+    border-radius: 15;
+}
+
+switch {
+    color: #95fa73;
+}
+
+Picker {
+    color: white;
+}

@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="DomowyDashboard.View.Glowna_strona.StronaGlowna_View"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="StronaGlowna_Page"
+    ItemsSource="{Binding Path=BindingContext.PomieszczenieLista, Source={x:Reference StronaGlowna_Page}}"
+    mc:Ignorable="d">
+
+    <TabbedPage.Resources>
+        <ResourceDictionary />
+    </TabbedPage.Resources>
+    <TabbedPage.ItemTemplate>
+        <DataTemplate>
+            <ContentPage Title="{Binding Pomieszczenie}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <!--#region Widok z kamery-->
+                    <Frame
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,0,0,0"
+                        Padding="0,0,0,0"
+                        HasShadow="True"
+                        HorizontalOptions="Fill">
+                        <Grid Padding="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Source="{Binding Kamera}" />
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Padding="5,5,5,5"
+                                BackgroundColor="#24256b"
+                                CornerRadius="5"
+                                HorizontalOptions="Start"
+                                Opacity="0.7"
+                                VerticalOptions="Start">
+                                <Label Text="{Binding Pomieszczenie}" />
+                            </Frame>
+                            <Frame
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Padding="5,5,5,5"
+                                BackgroundColor="#24256b"
+                                CornerRadius="5"
+                                HorizontalOptions="Start"
+                                Opacity="0.7"
+                                VerticalOptions="End">
+                                <Picker
+                                    Title="Dodaj urządzenie"
+                                    Margin="0,0,0,0"
+                                    AutomationId="{Binding ilp}"
+                                    ItemDisplayBinding="{Binding Nazwa}"
+                                    ItemsSource="{Binding DostepneUrzadzenia}"
+                                    SelectedItem="{Binding Id}"
+                                    TextColor="WhiteSmoke"
+                                    TitleColor="WhiteSmoke" />
+                            </Frame>
+
+                        </Grid>
+                    </Frame>
+
+                    <!--#endregion-->
+                    <!--#region Temperatura-->
+                    <Frame
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Padding="5,2,5,2"
+                        IsEnabled="{Binding TemperaturaVisible}"
+                        IsVisible="{Binding TemperaturaVisible}">
+                        <Grid Padding="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                HorizontalOptions="Center"
+                                Text="Temperatura" />
+                            <Label
+                                x:Name="lblWyswietlTemperature"
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.ColumnSpan="2"
+                                HorizontalOptions="Center"
+                                StyleClass="Temperatura"
+                                Text="{Binding Temperatura}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                HorizontalOptions="Center"
+                                Text="°C"
+                                VerticalOptions="Start" />
+
+
+                        </Grid>
+                    </Frame>
+
+                    <!--#endregion-->
+                    <!--#region Wilgotność-->
+                    <Frame
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Padding="0,0,0,0"
+                        IsEnabled="{Binding WilgotnoscVisible}"
+                        IsVisible="{Binding WilgotnoscVisible}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                HorizontalOptions="Center"
+                                Text="Wilgotność" />
+                            <Label
+                                x:Name="lblWilgotnosc"
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                HorizontalOptions="Center"
+                                StyleClass="Wilgotnosc"
+                                Text="{Binding Wilgotnosc}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Start"
+                                Text="%"
+                                VerticalOptions="Start" />
+                        </Grid>
+
+                    </Frame>
+
+
+                    <!--#endregion-->
+                    <!--#region Oświetlenie-->
+                    <Frame
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Padding="0,0,0,0"
+                        IsEnabled="{Binding WilgotnoscVisible}"
+                        IsVisible="{Binding WilgotnoscVisible}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                Text="Oświetlenie" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Padding="10,0,0,0"
+                                HorizontalOptions="Start"
+                                StyleClass="Wyl"
+                                Text="Wył."
+                                VerticalOptions="Center" />
+
+                            <Switch
+                                x:Name="switchOswietlenie"
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                IsToggled="{Binding switchOswietlenie}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Padding="0,0,10,0"
+                                HorizontalOptions="End"
+                                StyleClass="Wl"
+                                Text="Wł."
+                                VerticalOptions="Center" />
+
+                        </Grid>
+                    </Frame>
+
+
+                    <!--#endregion-->
+                    <!--#region Klimatyzacja-->
+                    <Frame
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Padding="0,0,0,0"
+                        IsEnabled="{Binding KlimatyzacjaVisible}"
+                        IsVisible="{Binding KlimatyzacjaVisible}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                Text="Klimatyzacja" />
+                            <Frame
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Padding="0,0,0,0"
+                                BackgroundColor="Transparent">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button
+                                        x:Name="btnTempMinus"
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        AutomationId="{Binding ilp}"
+                                        Clicked="btnTempMinus_Clicked"
+                                        Command="{Binding Path=BindingContext.cmdBtnZmniejszTemp, Source={x:Reference StronaGlowna_Page}}"
+                                        CommandParameter="{Binding .}"
+                                        StyleClass="ZmniejszTemp"
+                                        Text="-" />
+
+                                    <Label
+                                        x:Name="lblNowaTemperatura"
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        HorizontalOptions="Center"
+                                        StyleClass="Temperatura"
+                                        Text="{Binding Temperatura}"
+                                        VerticalOptions="Center" />
+                                    <Button
+                                        x:Name="btnTempPlus"
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        AutomationId="{Binding ilp}"
+                                        Clicked="btnTempPlus_Clicked"
+                                        Command="{Binding Path=BindingContext.cmdBtnZwiekszTemp, Source={x:Reference StronaGlowna_Page}}"
+                                        CommandParameter="{Binding .}"
+                                        StyleClass="ZwiekszTemp"
+                                        Text="+" />
+                                </Grid>
+
+                            </Frame>
+                        </Grid>
+
+                    </Frame>
+
+                    <!--#endregion-->
+                    <!--#region Kominek-->
+                    <Frame
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Padding="0,0,0,0"
+                        IsEnabled="{Binding switchKominekVisible}"
+                        IsVisible="{Binding switchKominekVisible}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+
+                                <RowDefinition Height="1*" />
+
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                Text="Kominek" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Padding="10,0,0,0"
+                                HorizontalOptions="Start"
+                                StyleClass="Wyl"
+                                Text="Wył."
+                                VerticalOptions="Center" />
+                            <Switch
+                                x:Name="switchKominek"
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                IsToggled="{Binding switchKominek}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Padding="0,0,10,0"
+                                HorizontalOptions="End"
+                                StyleClass="Wl"
+                                Text="Wł."
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Frame>
+                    <!--#endregion-->
+                    <!--#region Ogrzewanie-->
+                    <Frame
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Padding="0,0,0,0"
+                        IsEnabled="{Binding switchOgrzewanieVisible}"
+                        IsVisible="{Binding switchOgrzewanieVisible}">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                Text="Ogrzewanie" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Padding="10,0,0,0"
+                                HorizontalOptions="Start"
+                                StyleClass="Wyl"
+                                Text="Wył."
+                                VerticalOptions="Center" />
+                            <Switch
+                                x:Name="switchOgrzewanie"
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                IsToggled="{Binding switchOgrzewanie}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Padding="0,0,10,0"
+                                HorizontalOptions="End"
+                                StyleClass="Wl"
+                                Text="Wł."
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Frame>
+
+                    <!--#endregion-->
+                </Grid>
+            </ContentPage>
+        </DataTemplate>
+    </TabbedPage.ItemTemplate>
+
+</TabbedPage>
